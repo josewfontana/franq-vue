@@ -1,45 +1,98 @@
-# hqvue
+# Ratings and Graphs
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern Vue 3 dashboard project powered by Vite, Tailwind CSS, Pinia, Vue Router, and Chart.js.
 
-## Recommended IDE Setup
+This app fetches and displays dynamic financial data with charts, interactive UI components, and responsive layouts.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Type Support for `.vue` Imports in TS
+## 🚀 Tech Stack
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- [Vue 3](https://vuejs.org/) + [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Pinia](https://pinia.vuejs.org/) for state management
+- [Vue Router](https://router.vuejs.org/) for routing
+- [Chart.js](https://www.chartjs.org/) via [vue-chartjs](https://vue-chartjs.org/)
+- [Vitest](https://vitest.dev/) for unit testing
+- [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for linting & formatting
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 📦 Installation
 
-## Project Setup
-
-```sh
+```bash
+git clone git@github.com:josewfontana/franq-vue.git
+cd franq-vue
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
+## 💻 Development
+
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Access the app at [http://localhost:5173](http://localhost:5173)
 
-```sh
+---
+
+## 📦 Build
+
+```bash
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+To preview the production build:
 
-```sh
-npm run test:unit
+```bash
+npm run preview
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+---
 
-```sh
+## ✅ Lint & Format
+
+```bash
 npm run lint
+npm run format
 ```
+
+---
+
+## 💪 Run Unit Tests
+
+```bash
+npm run test
+```
+
+---
+
+## 📁 Folder Structure
+
+```bash
+src/
+├── components/
+├── views/
+├── router/
+├── store/
+├── services/
+├── assets/
+└── App.vue
+```
+
+---
+
+## 🧐 Notes
+
+- Uses `vue-tsc` for type-checking.
+- Tailwind utilities and transitions for responsive design.
+- Chart visualizations powered by `Chart.js`.
+
+---
+
+## 📄 License
+
+MIT © [josewfontana](https://github.com/josewfontana)
