@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gray-100 p-4 sm:p-6">
     <div class="max-w-6xl mx-auto">
-      <!-- Header -->
       <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white rounded-lg shadow p-4 sm:p-6 mb-6 gap-4">
         <div>
           <h1 class="text-2xl font-bold text-gray-800">Welcome, {{ user?.name || 'User' }}!</h1>
@@ -15,7 +14,6 @@
         </button>
       </div>
 
-      <!-- Content -->
       <div v-if="isLoading" class="flex items-center justify-center py-12">
         <svg
           class="animate-spin h-8 w-8 text-blue-600"
@@ -54,13 +52,13 @@ import { getCurrentUser } from '@/services/auth';
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { fetchRates } from '@/services/rates';
-import { CurrencyQuote } from '@/models/rates';
+import type { CurrencyQuote } from '@/models/rates';
 
 const router = useRouter()
 const user = ref<{ name: string; email: string } | null>(null)
 const isLoading = ref(true)
 const tableHeaders = ref<string[]>([])
-const tableData = ref([])
+const tableData = ref<CurrencyQuote[]>([])
 const moneySource = ref('')
 
 const getData = async () => {

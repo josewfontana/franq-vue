@@ -87,21 +87,33 @@
 import { computed } from 'vue'
 import GraphDetails from '@/components/GraphDetails.vue'
 
-const props = defineProps<{
-  headers: string[]
-  data: Record<string, number>[]
-}>()
-
-const checkNumber = (variation: string | number) => {
-  if (typeof variation === 'string') return
-  if (variation < 0) return 'isNegative'
-  return 'isPositive'
+interface CurrencyRow {
+  name: string;
+  buy: number | null;
+  sell: number | null;
+  variation: number;
+  [key: string]: string | number | null;
 }
 
-const formatNumber = (value: string | number): string | number => {
+const props = defineProps<{
+  headers: string[]
+  data: CurrencyRow[]
+}>()
+
+const checkNumber = (variation: string | number | null): 'isNegative' | 'isPositive' | 'invalid' => {
+  if (variation === null) return 'invalid'
+  const value = typeof variation === 'string' ? parseFloat(variation) : variation
+  if (isNaN(value)) return 'invalid'
+  return value < 0 ? 'isNegative' : 'isPositive'
+}
+
+
+const formatNumber = (value: string | number | null): string => {
+  if (value === null) return '—'
+
   const number = typeof value === 'string' ? parseFloat(value) : value
 
-  if (isNaN(number)) return value
+  if (isNaN(number)) return value as string
 
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
